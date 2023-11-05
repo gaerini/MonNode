@@ -10,6 +10,11 @@ const GlobalStyle: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
+export const PC_VERSION_QUERY_POINT = 1000;
+const SIDE_SECTION_WIDTH = 390;
+const GAP = 40;
+export const MOBILE_VERSION_MAX_WIDTH = 430;
+
 const GlobalStyleWrapper = createGlobalStyle`
   html {
     font-family:
