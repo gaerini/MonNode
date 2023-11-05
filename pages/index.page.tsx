@@ -4,6 +4,7 @@ import Head from 'next/head'
 import * as S from "./style"
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import HeaderNav from 'components/common/HeaderNav'
 
 const Home: NextPage = () => {
   const [postList, setPostList] = useState([]);
@@ -21,7 +22,7 @@ const Home: NextPage = () => {
   return (
     <S.Container>
       <main>
-        <h1>hello</h1>
+        <HeaderNav/>
       </main>
     </S.Container>
   )
