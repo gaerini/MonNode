@@ -1,4 +1,3 @@
-import { MOBILE_VERSION_MAX_WIDTH } from "styles/GlobalStyle";
 import styled, { css } from "styled-components";
 
 export const Container = styled.aside`
@@ -8,7 +7,6 @@ align-items: center;
 position: fixed;
 bottom: 0;
 width: 100%;
-max-width: ${MOBILE_VERSION_MAX_WIDTH}px;
 z-index: 110;
 height: 10rem;
 min-height: 44px;

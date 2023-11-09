@@ -1,13 +1,16 @@
 import React from 'react';
 import * as S from "./style";
 import BottomNav from 'components/common/BottomNav';
+import BlackBackground from 'components/common/BlackBackground';     
 
 const Profile = () => {
 
   return (
     <>
-      <h1>Profile</h1>
-      <BottomNav />
+      <BlackBackground>
+        <h1>Profile</h1>
+        <BottomNav />
+      </BlackBackground>
     </>
   );
 }

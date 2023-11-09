@@ -6,6 +6,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import HeaderNav from 'components/common/HeaderNav'
 import BottomNav from 'components/common/BottomNav'
+import BlackBackground from 'components/common/BlackBackground'
 
 const Home: NextPage = () => {
   const [postList, setPostList] = useState([]);
@@ -23,8 +24,10 @@ const Home: NextPage = () => {
   return (
     <S.Container>
       <main>
-        <HeaderNav/>
-        <BottomNav />
+        <BlackBackground>
+          <HeaderNav/>
+          <BottomNav />
+        </BlackBackground>
       </main>
     </S.Container>
   )
