@@ -4,7 +4,6 @@ import Head from 'next/head'
 import * as S from "./style"
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import HeaderNav from 'components/common/HeaderNav'
 import BottomNav from 'components/common/BottomNav'
 import BlackBackground from 'components/common/BlackBackground'
 
@@ -25,7 +24,6 @@ const Home: NextPage = () => {
     <S.Container>
       <main>
         <BlackBackground>
-          <HeaderNav/>
           <BottomNav />
         </BlackBackground>
       </main>

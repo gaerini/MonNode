@@ -26,7 +26,7 @@ const BottomNav: React.FC = () => {
     {
       icon: ({ color }: { color: string }) => (
         <img
-          src={activeRoute === URL_PATTERNS.Play ? "/PlayActiveIcon.svg" : "/PlayIcon.svg"}
+          src={activeRoute === URL_PATTERNS.Mynode || activeRoute === URL_PATTERNS.Play || activeRoute === URL_PATTERNS.Trend ? "/PlayActiveIcon.svg" : "/PlayIcon.svg"}
           style={{ fill: color }}
         />
       ),
