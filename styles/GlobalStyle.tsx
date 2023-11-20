@@ -187,6 +187,8 @@ const Container = styled.div`
   width: 100%;
   font-size: 1.6rem;
   position: relative;
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
   div::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
   }

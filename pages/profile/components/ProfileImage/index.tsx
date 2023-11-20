@@ -23,6 +23,7 @@ const ProfileImage = () => {
             </S.ProfileImageWrapper>
         </S.Container>
     );
+
 };
 
 export default ProfileImage;
