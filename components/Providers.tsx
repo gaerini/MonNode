@@ -11,6 +11,9 @@ interface ProvidersProps {
 }
 
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
+  useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
   return (
     <NextUIProvider>
       <ThemeProvider theme={PMDS_Light}>

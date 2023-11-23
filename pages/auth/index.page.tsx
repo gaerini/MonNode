@@ -12,7 +12,7 @@ function Auth() {
         color={"primary"}
         size={"lg"}
         variant={"faded"}
-        className="text-lg font-bold"
+        className={"text-lg font-bold"}
         startContent={<img src={googleLogo.src} />}
         onClick={() => signIn("google", { callbackUrl: "/signup" })}
       >
