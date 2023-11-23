@@ -48,8 +48,12 @@ const Profile = () => {
             <div className="categories">공개계정으로 설정</div>
           </div>
         </S.ProfileOpenOptionWrapper> */}
-      <MusicClock />
-      <Before2week />
+      <S.MusicClockWrapper>
+        <MusicClock />
+      </S.MusicClockWrapper>
+      <S.Before2weekWrapper>
+        <Before2week />
+      </S.Before2weekWrapper>
       <BottomNav />
     </>
   );

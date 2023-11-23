@@ -13,7 +13,8 @@ function Before2week() {
     fetch2weekData();
   }, []);
   return (
-    <div>
+    <div style={{ width: "80%" }}>
+      <div>나의 음악 다이어리</div>
       <WeekDataContainer>
         {weekData.length > 0 &&
           weekData.map((data: any) => (
@@ -34,7 +35,7 @@ export default Before2week;
 // }]
 
 const WeekDataContainer = styled.div`
-  width: 90%;
+  width: 100%;
   padding: 0.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -44,9 +45,8 @@ const WeekDataContainer = styled.div`
 `;
 
 const WeekDataWrapper = styled.div<{ image?: string }>`
-  width: 13%;
+  width: 12.5%;
   height: 5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;

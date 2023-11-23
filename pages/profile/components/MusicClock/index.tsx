@@ -13,7 +13,8 @@ function MusicClock() {
     fetchRecentData();
   }, []);
   return (
-    <div>
+    <div style={{ width: "80%" }}>
+      <div>나의 음악 시계</div>
       <RecentDataContainer>
         {recentData.length > 0 &&
           recentData.map((data: any) => (
@@ -29,7 +30,7 @@ function MusicClock() {
 export default MusicClock;
 
 const RecentDataContainer = styled.div`
-  width: 90%;
+  width: 100%;
   padding: 0.5rem;
   display: flex;
   flex-wrap: nowrap;
