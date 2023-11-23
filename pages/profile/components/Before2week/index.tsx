@@ -34,16 +34,18 @@ export default Before2week;
 // }]
 
 const WeekDataContainer = styled.div`
-  width: 100%;
+  width: 90%;
   padding: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
 `;
 
 const WeekDataWrapper = styled.div<{ image?: string }>`
-  width: 12%;
-  height: 6rem;
+  width: 13%;
+  height: 5rem;
 
   display: flex;
   justify-content: center;
