@@ -15,10 +15,6 @@ export const PMDS_Light = {
     white: "#FFFFFF",
     black: "#555555",
   },
-  fonts: {
-    sans: '"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI","Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;',
-    mono: "Menlo, Monaco, 'Lucida Console', 'Liberation Mono','DejaVu Sans Mono', 'Bitstream Vera Sans Mono'",
-  },
   fontSizes: {
     title: "2rem",
     large: "1.6rem",
@@ -60,11 +56,6 @@ import { DefaultTheme } from "styled-components";
 export const lightTheme = {
   colors: PMDS_Light.colors,
   fontSizes: PMDS_Light.fontSizes,
-  fonts: {
-    body: PMDS_Light.fonts.sans,
-    heading: PMDS_Light.fonts.sans,
-    mono: PMDS_Light.fonts.sans,
-  },
   radii: PMDS_Light.radii,
   transitions: PMDS_Light.transitions,
 };

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const AuthContainer = styled.div`
-  width: 100%;
+  width: 88%;
+  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

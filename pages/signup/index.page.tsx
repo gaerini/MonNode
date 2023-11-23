@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FadeInFromHidden } from "styles/animations";
 import Ganre from "./components/Ganre";
+import Nickname from "./components/Nickname";
 const spring = {
   type: "spring",
   stiffness: 200,
@@ -15,6 +16,7 @@ function SignUp() {
   const { data: session, status } = useSession();
   const [page, setPage] = useState(1);
   const [selectedGanre, setSelectedGanre] = useState<null | string>(null);
+  const [nickname, setNickname] = useState<null | string>(null);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {});
   useEffect(() => {
@@ -25,13 +27,27 @@ function SignUp() {
   if (status !== "loading")
     return (
       <SignUpContainer>
-        <Title layout transition={spring}>
-          <b>가장 즐겨듣는 장르</b>를 선택해주세요
-        </Title>
+        {page === 1 ? (
+          <Title layout transition={spring}>
+            <b>가장 즐겨듣는 장르</b>를 선택해주세요
+          </Title>
+        ) : (
+          <Title layout transition={spring}>
+            <b>원하시는 닉네임</b>을 설정해주세요
+          </Title>
+        )}
         {page === 1 && !isLoading && (
           <Ganre
+            setPage={setPage}
             selectedGanre={selectedGanre}
             setSelectedGanre={setSelectedGanre}
+          />
+        )}
+        {page === 2 && (
+          <Nickname
+            setPage={setPage}
+            nickname={nickname}
+            setNickname={setNickname}
           />
         )}
       </SignUpContainer>
@@ -41,7 +57,8 @@ function SignUp() {
 export default SignUp;
 
 const SignUpContainer = styled(motion.div)`
-  width: 100%;
+  width: 88%;
+  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

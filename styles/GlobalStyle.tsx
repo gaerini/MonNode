@@ -157,27 +157,27 @@ const GlobalStyleWrapper = createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
   }
 
-  @media screen and (max-width: 415px) {
+  @media screen and (max-width: 640px) {
     html {
-      font-size: 9.375px;
+      font-size: 15px;
     }
   }
 
-  @media screen and (max-width: 413px) {
+  @media screen and (max-width: 430px) {
     html {
-      font-size: 8.75px;
+      font-size: 14px;
     }
   }
 
-  @media screen and (max-width: 361px) {
+  @media screen and (max-width: 390px) {
     html {
-      font-size: 8.125px;
+      font-size: 13px;
     }
   }
 
-  @media screen and (max-width: 321px) {
+  @media screen and (max-width: 340px) {
     html {
-      font-size: 7.5px;
+      font-size: 12px;
     }
   }
 
