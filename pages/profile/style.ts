@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 8rem;
+`;
+
 export const ProfileImageWrapper = styled.div`
   display: flex;
   width: 100%;
@@ -55,12 +61,16 @@ export const MusicClockWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  font-weight: 700;
+  font-size: 1.5rem;
 `;
 
 export const Before2weekWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  font-weight: 700;
+  font-size: 1.5rem;
 `;

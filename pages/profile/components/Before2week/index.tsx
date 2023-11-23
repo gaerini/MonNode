@@ -39,13 +39,14 @@ const WeekDataContainer = styled.div`
   padding: 0.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.4rem;
   background-color: white;
   border-radius: 0.5rem;
+  margin-top: 0.5rem;
 `;
 
 const WeekDataWrapper = styled.div<{ image?: string }>`
-  width: 12.5%;
+  width: 15%;
   height: 5rem;
   display: flex;
   justify-content: center;
@@ -53,4 +54,5 @@ const WeekDataWrapper = styled.div<{ image?: string }>`
   background-color: ${({ theme }) => theme.colors.textGray};
   background-image: ${({ image }) => (image ? `url(${image})` : "")};
   background-size: cover;
+  border-radius: 0.5rem;
 `;
