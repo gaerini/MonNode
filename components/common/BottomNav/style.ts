@@ -24,7 +24,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem 3rem;
+    padding: 1rem 1rem;
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -48,8 +48,8 @@ export const NavItemAnchor = styled.div<{ $isActive: boolean }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
   & img {
     width: 100%;

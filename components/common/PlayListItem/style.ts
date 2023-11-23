@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +24,7 @@ export const BottomWrapper = styled.div`
 
 export const Image = styled.img`
   width: 37.5rem;
-  height: 47.5rem;
+  height: 38rem;
   border-radius: 5.12%;
 `;
 
@@ -50,6 +49,7 @@ export const LikeIndicator = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  transition: ${({theme})=> theme.transitions.medium};
 `;
 
 export const Likes = styled.div`
