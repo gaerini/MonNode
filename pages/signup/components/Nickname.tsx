@@ -4,7 +4,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { FadeInFromHidden } from "styles/animations";
 
-function Nickname({ setPage, nickname, setNickname }: any) {
+function Nickname({ session, setPage, nickname, setNickname }: any) {
   return (
     <NicknameContainer>
       <Input
@@ -12,6 +12,7 @@ function Nickname({ setPage, nickname, setNickname }: any) {
         onValueChange={(value) => {
           setNickname(value);
         }}
+        defaultValue={session.user.name}
         size={"lg"}
         fullWidth={true}
         label="닉네임을 입력해주세요"
