@@ -57,8 +57,6 @@ export const NavItem = styled.div<{ $isActive: boolean }>`
 `;
 
 export const BeforeIcon = styled.div`
-  left: 5rem;
-  top: 5.9rem;
-  position: absolute;
+
   cursor: pointer;
 `;
