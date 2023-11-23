@@ -24,6 +24,7 @@ function SignUp() {
       setIsLoading(false);
     }, 500);
   }, []);
+  console.log(session);
   if (status !== "loading")
     return (
       <SignUpContainer>
@@ -45,6 +46,7 @@ function SignUp() {
         )}
         {page === 2 && (
           <Nickname
+            session={session}
             setPage={setPage}
             nickname={nickname}
             setNickname={setNickname}
