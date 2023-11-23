@@ -7,11 +7,13 @@ import ButtonImage from "./components/Group 57.png";
 import ProfileInfoWrapper from "./components/ProfileInfo";
 import Before2week from "./components/Before2week";
 import MusicClock from "./components/MusicClock";
+import ProfileHeader from "./components/ProfileHeader";
 
 <BlackBackground></BlackBackground>;
 const Profile = () => {
   return (
     <>
+      <ProfileHeader />
       <ProfileImage />
       <ProfileInfoWrapper />
 

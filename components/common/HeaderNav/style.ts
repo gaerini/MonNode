@@ -57,6 +57,5 @@ export const NavItem = styled.div<{ $isActive: boolean }>`
 `;
 
 export const BeforeIcon = styled.div`
-
   cursor: pointer;
 `;

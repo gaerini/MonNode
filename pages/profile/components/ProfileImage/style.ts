@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const ProfileImageWrapper = styled.div`
-    width: 10rem; /* 디자인에 맞게 크기 조정 */
-    height: 10rem; /* 디자인에 맞게 크기 조정 */
+    width: 7rem; /* 디자인에 맞게 크기 조정 */
+    height: 7rem; /* 디자인에 맞게 크기 조정 */
     overflow: hidden;
     border-radius: 50%;
     display: flex;
@@ -13,7 +13,7 @@ export const ProfileImageWrapper = styled.div`
 
 export const Container = styled.div`
     width: 100%;
-    height: 10rem;
+    height: 7.5rem;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -25,7 +25,7 @@ const PlayListItem: React.FC<PlayListItemProps> = ({ id, image, time, initialLik
   };
 
   const formatLikes = () => {
-    return likes >= 100 ? (likes / 1000).toFixed(1) + 'kdb' : likes + 'db';
+    return likes >= 100 ? (likes / 1000).toFixed(1) + 'kdB' : likes + 'dB';
   };
 
   return (
