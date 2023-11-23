@@ -153,7 +153,7 @@ const GlobalStyleWrapper = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%;
+    /* font-size: 62.5%; */
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -185,7 +185,7 @@ const GlobalStyleWrapper = createGlobalStyle`
 
 const Container = styled.div`
   width: 100%;
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
   position: relative;
   div::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
