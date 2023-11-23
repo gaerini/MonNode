@@ -17,7 +17,11 @@ const BottomNav: React.FC = () => {
     {
       icon: ({ color }: { color: string }) => (
         <img
-          src={activeRoute === URL_PATTERNS.HOME ? "/HomeActiveIcon.svg" : "/HomeIcon.svg"}
+          src={
+            activeRoute === URL_PATTERNS.HOME
+              ? "/HomeActiveIcon.svg"
+              : "/HomeIcon.svg"
+          }
           style={{ fill: color }}
         />
       ),
@@ -26,7 +30,13 @@ const BottomNav: React.FC = () => {
     {
       icon: ({ color }: { color: string }) => (
         <img
-          src={activeRoute === URL_PATTERNS.Mynode || activeRoute === URL_PATTERNS.Play || activeRoute === URL_PATTERNS.Trend ? "/PlayActiveIcon.svg" : "/PlayIcon.svg"}
+          src={
+            activeRoute === URL_PATTERNS.Mynode ||
+            activeRoute === URL_PATTERNS.Play ||
+            activeRoute === URL_PATTERNS.Trend
+              ? "/PlayActiveIcon.svg"
+              : "/PlayIcon.svg"
+          }
           style={{ fill: color }}
         />
       ),
@@ -35,7 +45,11 @@ const BottomNav: React.FC = () => {
     {
       icon: ({ color }: { color: string }) => (
         <img
-          src={activeRoute === URL_PATTERNS.Search ? "/SearchActiveIcon.svg" : "/SearchIcon.svg"}
+          src={
+            activeRoute === URL_PATTERNS.Search
+              ? "/SearchActiveIcon.svg"
+              : "/SearchIcon.svg"
+          }
           style={{ fill: color }}
         />
       ),
@@ -44,7 +58,11 @@ const BottomNav: React.FC = () => {
     {
       icon: ({ color }: { color: string }) => (
         <img
-          src={activeRoute === URL_PATTERNS.Profile ? "/ProfileActiveIcon.svg" : "/ProfileIcon.svg"}
+          src={
+            activeRoute === URL_PATTERNS.Profile
+              ? "/ProfileActiveIcon.svg"
+              : "/ProfileIcon.svg"
+          }
           style={{ fill: color }}
         />
       ),
@@ -57,17 +75,16 @@ const BottomNav: React.FC = () => {
       <S.Container>
         <nav>
           {navList.map(({ icon, route }) => {
-            const color = route === activeRoute
-              ? (lightTheme.colors.main as string)
-              : (lightTheme.colors.disabled as string);
+            const color =
+              route === activeRoute
+                ? (lightTheme.colors.main as string)
+                : (lightTheme.colors.disabled as string);
             return (
-              <S.iconWrapper key={route}>
-                <Link passHref href={route}>
-                  <S.NavItemAnchor $isActive={route === activeRoute}>
-                    {icon({ color })}
-                  </S.NavItemAnchor>
-                </Link>
-              </S.iconWrapper>
+              <Link key={route} passHref href={route}>
+                <S.NavItemAnchor $isActive={route === activeRoute}>
+                  {icon({ color })}
+                </S.NavItemAnchor>
+              </Link>
             );
           })}
         </nav>

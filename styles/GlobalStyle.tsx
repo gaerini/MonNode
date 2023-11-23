@@ -17,6 +17,7 @@ export const MOBILE_VERSION_MAX_WIDTH = 430;
 
 const GlobalStyleWrapper = createGlobalStyle`
   html {
+    color-scheme: dark;
     font-family:
       'Pretendard Variable',
       Pretendard,
@@ -139,8 +140,7 @@ const GlobalStyleWrapper = createGlobalStyle`
      -moz-user-select: none;
      -ms-user-select: none;
      user-select: none; */
-      color: #333;
-    background-color: white;
+     background: black;
     touch-action: pan-x pan-y;
   }
 
@@ -153,7 +153,7 @@ const GlobalStyleWrapper = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%;
+    /* font-size: 62.5%; */
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -184,11 +184,14 @@ const GlobalStyleWrapper = createGlobalStyle`
 `;
 
 const Container = styled.div`
+  max-width: 430px;
   width: 100%;
-  font-size: 1.6rem;
+  margin: 0 auto;
+  /* font-size: 1.6rem; */
   position: relative;
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
+  min-height: 100vh;
   div::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
   }
