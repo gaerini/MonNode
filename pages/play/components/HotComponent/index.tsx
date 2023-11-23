@@ -1,36 +1,25 @@
 import React from 'react';
-import Image from 'next/image';
 import * as S from './style';
 import PlayListItem from 'components/common/PlayListItem';
+import { postList } from '../../../../pages/api/mock/playlistitem.api';
 
 const HotComponent = () => {
-    const items = [
-        {
-            id: 'lovememuchmore',
-            image: '/exampleImage.svg',
-            time: '21:14',
-            initialLikes: 17,
-            comment: '가을 밤엔 이 노래지'
-        },
-        {
-            id: 'musiccookie',
-            image: '/exampleImage.svg',
-            time: '17:55',
-            initialLikes: 270,
-            comment: '한강 걸으면서 듣는 중'
-        },
-    ];
+    const formatTime = (date: Date) => {
+        return date.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', hour12: false });
+    };
+
+    const sortedPosts = [...postList].sort((a, b) => b.likes - a.likes);
 
     return (
         <>
-            {items.map(item => (
+            {sortedPosts.map(post => (
                 <PlayListItem
-                    key={item.id}
-                    id={item.id}
-                    image={item.image}
-                    time={item.time}
-                    initialLikes={item.initialLikes}
-                    comment={item.comment}
+                    key={post.id}
+                    id={post.id.toString()}
+                    image={post.image[0]}
+                    time={formatTime(post.created_at)}
+                    initialLikes={post.likes}
+                    comment={post.content}
                 />
             ))}
         </>
