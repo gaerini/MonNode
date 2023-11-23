@@ -13,7 +13,8 @@ function Before2week() {
     fetch2weekData();
   }, []);
   return (
-    <div>
+    <div style={{ width: "80%" }}>
+      <div>나의 음악 다이어리</div>
       <WeekDataContainer>
         {weekData.length > 0 &&
           weekData.map((data: any) => (
@@ -34,23 +35,24 @@ export default Before2week;
 // }]
 
 const WeekDataContainer = styled.div`
-  width: 90%;
+  width: 100%;
   padding: 0.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.4rem;
   background-color: white;
   border-radius: 0.5rem;
+  margin-top: 0.5rem;
 `;
 
 const WeekDataWrapper = styled.div<{ image?: string }>`
-  width: 13%;
+  width: 15%;
   height: 5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.textGray};
   background-image: ${({ image }) => (image ? `url(${image})` : "")};
   background-size: cover;
+  border-radius: 0.5rem;
 `;
