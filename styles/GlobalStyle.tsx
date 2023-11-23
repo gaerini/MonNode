@@ -17,6 +17,7 @@ export const MOBILE_VERSION_MAX_WIDTH = 430;
 
 const GlobalStyleWrapper = createGlobalStyle`
   html {
+    color-scheme: dark;
     font-family:
       'Pretendard Variable',
       Pretendard,
@@ -139,8 +140,7 @@ const GlobalStyleWrapper = createGlobalStyle`
      -moz-user-select: none;
      -ms-user-select: none;
      user-select: none; */
-      color: #333;
-    background-color: white;
+     background: black;
     touch-action: pan-x pan-y;
   }
 
@@ -153,42 +153,45 @@ const GlobalStyleWrapper = createGlobalStyle`
   }
 
   html {
-    font-size: 62.5%;
+    /* font-size: 62.5%; */
     -webkit-tap-highlight-color: transparent;
   }
 
-  @media screen and (max-width: 415px) {
+  @media screen and (max-width: 640px) {
     html {
-      font-size: 9.375px;
+      font-size: 15px;
     }
   }
 
-  @media screen and (max-width: 413px) {
+  @media screen and (max-width: 430px) {
     html {
-      font-size: 8.75px;
+      font-size: 14px;
     }
   }
 
-  @media screen and (max-width: 361px) {
+  @media screen and (max-width: 390px) {
     html {
-      font-size: 8.125px;
+      font-size: 13px;
     }
   }
 
-  @media screen and (max-width: 321px) {
+  @media screen and (max-width: 340px) {
     html {
-      font-size: 7.5px;
+      font-size: 12px;
     }
   }
 
 `;
 
 const Container = styled.div`
+  max-width: 430px;
   width: 100%;
-  font-size: 1.6rem;
+  margin: 0 auto;
+  /* font-size: 1.6rem; */
   position: relative;
   background: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};
+  min-height: 100vh;
   div::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
   }
