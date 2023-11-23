@@ -24,7 +24,7 @@ export const BottomWrapper = styled.div`
 `
 
 export const IconWrapper = styled.div`
-    width: 8rem;
+    width: 10rem;
     height: 2rem;
     display: flex;
     align-items: center;
