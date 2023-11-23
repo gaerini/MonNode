@@ -27,31 +27,31 @@ const ProfileInfoWrapper = () => {
   return (
     <S.ProfileInfoWrapper>
       <S.TopWrapper>
-        <p>이름{profileData.nickname}</p>
+        <S.Name>이름{profileData.nickname}</S.Name>
         <button>
           <S.ImageWrapper>
-            <Image src="/ProfileEditIcon.svg" width={10} height={10} />
+            <Image src="/ProfileEditIcon.svg" alt="" width={20} height={20} />
           </S.ImageWrapper>
         </button>
       </S.TopWrapper>
       <S.BottomWrapper>
         <S.IconWrapper>
           <S.ImageWrapper>
-            <Image src="/ProfilePlayIcon.svg" width={80} height={80} />
+            <Image src="/ProfilePlayIcon.svg" alt="" width={20} height={20} />
           </S.ImageWrapper>
-          <p>{profileData.songCount} 노래수</p>
+          <p>{profileData.songCount}</p>
         </S.IconWrapper>
         <S.IconWrapper>
           <S.ImageWrapper>
-            <Image src="/ProfileLikeIcon.svg" width={80} height={80} />
+            <Image src="/ProfileLikeIcon.svg" alt="" width={20} height={20} />
           </S.ImageWrapper>
-          <p>{profileData.likesCount} 좋아요</p>
+          <p>{profileData.likesCount}</p>
         </S.IconWrapper>
         <S.IconWrapper>
           <S.ImageWrapper>
-            <Image src="/ProfileFollowIcon.svg" width={80} height={80} />
+            <Image src="/ProfileFollowIcon.svg" alt="" width={20} height={20} />
           </S.ImageWrapper>
-          <p>{profileData.followersCount} 팔로우</p>
+          <p>{profileData.followersCount}</p>
         </S.IconWrapper>
       </S.BottomWrapper>
     </S.ProfileInfoWrapper>
