@@ -1,8 +1,9 @@
 import type { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
 import GlobalStyle from "styles/GlobalStyle";
-import "styles/fonts.css";
 import { SessionProvider } from "next-auth/react";
+import "styles/fonts.css";
+
 import Providers from "components/Providers";
 
 function MyApp({ Component, pageProps }: AppProps) {

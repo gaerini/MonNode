@@ -1,6 +1,6 @@
-import { light } from "styles/PMDS";
+import { lightTheme } from "styles/PMDS";
 
-type Theme = typeof light;
+type Theme = typeof lightTheme;
 
 declare module "styled-components" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface

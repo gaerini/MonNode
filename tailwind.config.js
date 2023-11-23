@@ -22,20 +22,20 @@ const config = {
         light: {
           colors: {
             primary: {
-              DEFAULT: "#0BD4B4",
+              DEFAULT: "#54A3FF",
             },
             secondary: {
-              DEFAULT: "#FFB1B1",
+              DEFAULT: "#FFE24B",
             },
           },
         },
         dark: {
           colors: {
             primary: {
-              DEFAULT: "#0BD4B4",
+              DEFAULT: "#54A3FF",
             },
             secondary: {
-              DEFAULT: "#FFB1B1",
+              DEFAULT: "#FFE24B",
             },
           },
         },
