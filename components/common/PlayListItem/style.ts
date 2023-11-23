@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -9,17 +9,17 @@ export const Container = styled.div`
 `;
 
 export const TopWrapper = styled.div`
-    width: 85%;
-    height: 4rem;
-    display: flex;
-    align-items: center;
+  width: 85%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
 `;
 
 export const BottomWrapper = styled.div`
-    width: 85%;
-    height: 2rem;
-    display: flex;
-    align-items: center;
+  width: 85%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
 `;
 
 export const Image = styled.img`
@@ -34,28 +34,56 @@ export const Time = styled.div`
   width: 75%;
 `;
 
-export const LikeButton = styled.button`
-  width: 5rem;
-  height: 0.25rem;
-  background-color: #fff;
+export const LikeButton = styled.div`
+  width: 3rem;
   position: relative;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `;
 
-export const LikeIndicator = styled.div`
+export const LikeIndicator = styled.div<{ isLiked: boolean; bgColor: string }>`
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  background-color: #fff;
+  background: #fff;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  transition: ${({theme})=> theme.transitions.medium};
+  transform: translate(0, -50%);
+  left: 0;
+  /* right: auto; */
+  transition: ${({ theme }) => theme.transitions.fast};
+  ${({ isLiked, bgColor }) =>
+    isLiked &&
+    css`
+      left: 2.25rem;
+      /* right: 0; */
+      background: ${bgColor};
+    `}
 `;
-
-export const Likes = styled.div`
+export const LikeBar = styled.div`
+  width: 100%;
+  height: 5px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: ${({ theme }) => theme.radii.full};
+`;
+export const Likes = styled.div<{ bgColor: string; likes: number }>`
   font-size: 2.75rem;
   margin-right: 1rem;
-  color: #fff;
+  ${({ bgColor }) =>
+    bgColor &&
+    css`
+      color: ${bgColor};
+    `}
+  ${({ likes, bgColor }) =>
+    likes > 999 &&
+    css`
+      background: ${bgColor};
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    `}
 `;
 
 export const Id = styled.div`
