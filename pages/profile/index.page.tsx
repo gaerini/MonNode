@@ -5,19 +5,17 @@ import BlackBackground from "components/common/BlackBackground";
 import ProfileImage from "./components/ProfileImage";
 import ButtonImage from "./components/Group 57.png";
 import ProfileInfoWrapper from "./components/ProfileInfo";
-import BottomNav from "components/common/BottomNav";
-import BlackBackground from "components/common/BlackBackground";
-import ProfileImage from "./components/ProfileImage";
 import Before2week from "./components/Before2week";
+import MusicClock from "./components/MusicClock";
 
+<BlackBackground></BlackBackground>;
 const Profile = () => {
   return (
     <>
-      <BlackBackground>
-        <ProfileImage />
-        <ProfileInfoWrapper />
+      <ProfileImage />
+      <ProfileInfoWrapper />
 
-        {/* <h1>Profile</h1>
+      {/* <h1>Profile</h1>
         <S.ProfileImageWrapper>
           <ProfileImage></ProfileImage>
         </S.ProfileImageWrapper>
@@ -50,9 +48,9 @@ const Profile = () => {
             <div className="categories">공개계정으로 설정</div>
           </div>
         </S.ProfileOpenOptionWrapper> */}
-        <Before2week />
-        <BottomNav />
-      </BlackBackground>
+      <MusicClock />
+      <Before2week />
+      <BottomNav />
     </>
   );
 };
