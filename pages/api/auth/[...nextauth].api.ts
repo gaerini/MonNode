@@ -10,7 +10,6 @@ import API from "../base-api";
 //   : process.env.NEXT_PUBLIC_API_URL;
 
 export default NextAuth({
-  debug: true,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -40,24 +39,26 @@ export default NextAuth({
       session.id_token = token.id_token;
       session.provider = token.provider;
       session.user = token.user; // 받아온 userdata session으로 넘겨주는 부분
-      //   session.profile = token.profile;
+      session.profile = token.profile;
       return session;
     },
 
     async jwt({ token, user, account }) {
       if (account) {
-        // console.log("Token: ", token, "&&", user, "&&", account);
+        console.log("Token: ", token, "&&", user, "&&", account);
         token.access_token = account.access_token;
         token.id_token = account.id_token;
         token.refresh_token = account.refresh_token;
         token.provider = account.provider;
         token.user = user; // user 객체를 token에 저장
 
-        // const getOrCreateUser = await API.post("/users", {
-        //   username: user?.name || null,
-        //   email: user?.email || null,
-        //   image_url: user?.image || "",
-        // });
+        const getOrCreateUser = await API.post("/user", {
+          username: user?.name || null,
+          email: user?.email || null,
+          profile: user?.image || "",
+        });
+        console.log(getOrCreateUser);
+        token.profile = getOrCreateUser.data;
       }
       return token;
     },
