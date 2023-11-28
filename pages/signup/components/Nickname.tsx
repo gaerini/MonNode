@@ -3,8 +3,39 @@ import { motion } from "framer-motion";
 import React from "react";
 import { styled } from "styled-components";
 import { FadeInFromHidden } from "styles/animations";
+import { useRouter } from "next/router";
+import API from "pages/api/base-api";
 
-function Nickname({ session, setPage, nickname, setNickname }: any) {
+function Nickname({
+  session,
+  setPage,
+  nickname,
+  setNickname,
+  selectedGanre,
+}: any) {
+  const router = useRouter();
+
+  const handleNextClick = async () => {
+    if (!nickname) {
+      //alert("닉네임을 입력해주세요.");
+      return;
+    }
+
+    try {
+      await API.put("/user", {
+        username: session.user.username,
+        email: session.user.email,
+        profile: session.user.profile,
+        ganre: selectedGanre,
+        nickname: nickname,
+      });
+
+      router.push("/");
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
+  };
+
   return (
     <NicknameContainer>
       <Input
@@ -33,7 +64,12 @@ function Nickname({ session, setPage, nickname, setNickname }: any) {
         >
           이전
         </Button>
-        <Button size="lg" fullWidth color={nickname ? "primary" : "default"}>
+        <Button
+          size="lg"
+          fullWidth
+          color={nickname ? "primary" : "default"}
+          onClick={handleNextClick}
+        >
           다음
         </Button>
       </div>

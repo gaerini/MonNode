@@ -4,7 +4,7 @@ import axios from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const API = axios.create({
   // baseURL: "/api",
-  baseURL: BASE_URL + "/api",
+  baseURL: BASE_URL,
   // headers: {
   //   "User-Agent":
   //     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",

@@ -2,6 +2,7 @@ import { Button } from "@nextui-org/react";
 import { musicGanre } from "constants/ganre";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FadeInFromHidden } from "styles/animations";
@@ -18,12 +19,20 @@ function SignUp() {
   const [selectedGanre, setSelectedGanre] = useState<null | string>(null);
   const [nickname, setNickname] = useState<null | string>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
   useEffect(() => {});
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 500);
   }, []);
+  useEffect(() => {
+    if (session) {
+      if (session?.profile?.nickname && session?.profile?.ganre) {
+        router.push("/");
+      }
+    }
+  }, [session]);
   console.log(session);
   if (status !== "loading")
     return (
