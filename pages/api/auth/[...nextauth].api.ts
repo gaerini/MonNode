@@ -39,7 +39,7 @@ export default NextAuth({
       session.id_token = token.id_token;
       session.provider = token.provider;
       session.user = token.user; // 받아온 userdata session으로 넘겨주는 부분
-      session.profile = token.profile;
+      // session.profile = token.profile;
       return session;
     },
 
@@ -52,13 +52,13 @@ export default NextAuth({
         token.provider = account.provider;
         token.user = user; // user 객체를 token에 저장
 
-        const getOrCreateUser = await API.post("/user", {
-          username: user?.name || null,
-          email: user?.email || null,
-          profile: user?.image || "",
-        });
-        console.log(getOrCreateUser);
-        token.profile = getOrCreateUser.data;
+        // const getOrCreateUser = await API.post("/user", {
+        //   username: user?.name || null,
+        //   email: user?.email || null,
+        //   profile: user?.image || "",
+        // });
+        // console.log("응답", getOrCreateUser);
+        // token.profile = getOrCreateUser.data;
       }
       return token;
     },
