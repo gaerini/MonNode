@@ -43,7 +43,7 @@ function Nickname({
         onValueChange={(value) => {
           setNickname(value);
         }}
-        defaultValue={session.user.name}
+        // defaultValue={session.user.name}
         size={"lg"}
         fullWidth={true}
         label="닉네임을 입력해주세요"

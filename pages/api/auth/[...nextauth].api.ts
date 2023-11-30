@@ -52,13 +52,13 @@ export default NextAuth({
         token.provider = account.provider;
         token.user = user; // user 객체를 token에 저장
 
-        // const getOrCreateUser = await API.post("/user", {
-        //   username: user?.name || null,
-        //   email: user?.email || null,
-        //   profile: user?.image || "",
-        // });
-        // console.log("응답", getOrCreateUser);
-        // token.profile = getOrCreateUser.data;
+        const getOrCreateUser = await API.post("/user", {
+          username: user?.name || null,
+          email: user?.email || null,
+          profile: user?.image || "",
+        });
+        console.log("응답", getOrCreateUser);
+        token.profile = getOrCreateUser.data;
       }
       return token;
     },
