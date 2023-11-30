@@ -1,5 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const H = styled.h1`
-    color: #fff;
-`
+  color: ${({ theme }) => theme.colors.white};
+`;
