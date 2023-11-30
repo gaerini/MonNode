@@ -1,34 +1,62 @@
-import React from 'react';
-import * as S from './style';
-import PlayListItem from 'components/common/PlayListItem';
-import { postList } from '../../../../pages/api/mock/playlistitem.api';
+import React, { useEffect, useState } from "react";
+import * as S from "./style";
+import PlayListItem from "components/common/PlayListItem";
+import { useSession } from "next-auth/react";
+import API from "../../../../pages/api/base-api";
 
-const MynodeComponent = () => {
-    const formatTime = (date: Date) => {
-        return date.toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', hour12: false });
-    };
+type Post = {
+  id: number;
+  imageList: string[];
+  createdAt: string;
+  decibels: number;
+  content: string;
+};
 
-    // 임시 로그인한 사용자 ID (예시: 101)
-    // OAuth 구축 완료 후 실제 로그인한 사용자의 ID로 대체
-    const loggedInUserId = 101;
+const MynodeComponent: React.FC = () => {
+  const { data: session, status } = useSession();
+  const [myPosts, setMyPosts] = useState<Post[]>([]);
 
-    // 로그인한 사용자가 올린 게시물만 필터링
-    const myPosts = postList.filter(post => post.author === loggedInUserId);
+  const formatTime = (date: string): string => {
+    return new Date(date).toLocaleTimeString("ko-KR", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+  };
 
-    return (
-        <>
-            {myPosts.map(post => (
-                <PlayListItem
-                    key={post.id}
-                    id={post.id.toString()}
-                    image={post.image[0]}
-                    time={formatTime(post.created_at)}
-                    initialLikes={post.likes}
-                    comment={post.content}
-                />
-            ))}
-        </>
-    );
+  useEffect(() => {
+    if (session) {
+      console.log("Session:", session);
+      console.log("Email:", (session.user as { email: string }).email);
+      console.log("Email:", (session.profile as { email: string }).email);
+      console.log(typeof session.user.email);
+
+      API.get("/myposts", {
+        params: { email: (session.profile as { email: string }).email },
+      })
+        .then((response) => {
+          setMyPosts(response.data.userPosts);
+        })
+        .catch((error) => {
+          console.error("Error fetching posts:", error);
+        });
+    }
+  }, [session, status]);
+
+  return (
+    <>
+      {myPosts.map((post) => (
+        <PlayListItem
+          key={post.id}
+          id={post.id.toString()}
+          image={post.imageList[0]}
+          time={formatTime(post.createdAt)}
+          initialLikes={post.decibels}
+          comment={post.content}
+        />
+      ))}
+    </>
+  );
 };
 
 export default MynodeComponent;

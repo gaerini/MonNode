@@ -39,7 +39,7 @@ export default NextAuth({
       session.id_token = token.id_token;
       session.provider = token.provider;
       session.user = token.user; // 받아온 userdata session으로 넘겨주는 부분
-      // session.profile = token.profile;
+      session.profile = token.profile;
       return session;
     },
 
