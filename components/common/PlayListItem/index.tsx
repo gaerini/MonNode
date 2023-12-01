@@ -1,6 +1,8 @@
 import { Slider } from "@nextui-org/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./style";
+import API from "../../../pages/api/base-api";
+import { useSession } from "next-auth/react";
 
 type PlayListItemProps = {
   id: string;
@@ -19,11 +21,30 @@ const PlayListItem: React.FC<PlayListItemProps> = ({
 }) => {
   const [likes, setLikes] = useState<number>(initialLikes);
   const [liked, setLiked] = useState<boolean>(false);
-
+  useEffect(() => {}, [likes]);
+  const { data: session, status } = useSession();
   const toggleLike = () => {
     console.log("clicked");
+    if (session) {
+      if (liked === false) {
+        API.put("/updateDecibels", {
+          email: session.profile.email,
+          postId: id,
+          decibels: likes + 1,
+        }).then(() => setLikes(likes + 1));
+      } else {
+        if (initialLikes > 0) {
+          API.put("/updateDecibels", {
+            email: session.profile.email,
+            postId: id,
+            decibels: initialLikes - 1,
+          }).then(() => setLikes(likes - 1));
+        }
+      }
+    }
+
     setLiked(!liked);
-    setLikes(liked ? likes - 1 : likes + 1);
+    // setLikes(liked ? likes - 1 : likes + 1);
   };
 
   const getLikesColor = () => {
