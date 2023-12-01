@@ -3,7 +3,7 @@ import MainLogoPNG from "public/assets/logo/mainlogo.png";
 import styled, { css } from "styled-components";
 import { Rotate } from "styles/animations";
 
-function MainLogo({ speed = "slow", isRotate = true }) {
+function MainLogo({ speed = "slow" }) {
   const ReturnRotationSpeed = () => {
     switch (speed) {
       case "normal":
@@ -17,7 +17,7 @@ function MainLogo({ speed = "slow", isRotate = true }) {
     }
   };
   return (
-    <LogoContainer speed={ReturnRotationSpeed()} isRotate={isRotate}>
+    <LogoContainer speed={ReturnRotationSpeed()} isRotate={true}>
       <img src={MainLogoPNG.src} />
     </LogoContainer>
   );
@@ -35,3 +35,5 @@ const LogoContainer = styled.div<{ speed: string; isRotate: boolean }>`
       animation: ${Rotate} ${speed} infinite linear;
     `}
 `;
+
+const Logo = styled.img``;
