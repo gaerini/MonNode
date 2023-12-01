@@ -4,8 +4,14 @@ import MonnodePNG from "public/assets/logo/monnode.png";
 import WelcomePNG from "public/assets/logo/Welcome to.png";
 import { Button } from "@nextui-org/react";
 import styled from "styled-components";
+import API from "../api/base-api";
+import { useRouter } from "next/navigation";
 
 function FirstPage() {
+  const router = useRouter();
+  const skipClickHandler = () => {
+    router.push("/play");
+  };
   return (
     <Container>
       <div>
@@ -25,6 +31,13 @@ function FirstPage() {
       </div>
       <Button className={"bg-white text-black font-bold"} radius="sm">
         친구 추가
+      </Button>
+      <Button
+        className={"bg-white text-black font-bold"}
+        radius="sm"
+        onClick={skipClickHandler}
+      >
+        skip
       </Button>
     </Container>
   );
