@@ -3,6 +3,7 @@ import * as S from "./style";
 import PlayListItem from "components/common/PlayListItem";
 import { useSession } from "next-auth/react";
 import API from "../../../../pages/api/base-api";
+import AddComponent from "../AddComponent";
 
 type Post = {
   id: number;
@@ -45,16 +46,20 @@ const MynodeComponent: React.FC = () => {
 
   return (
     <>
-      {myPosts.map((post) => (
-        <PlayListItem
-          key={post.id}
-          id={post.id.toString()}
-          image={post.imageList[0]}
-          time={formatTime(post.createdAt)}
-          initialLikes={post.decibels}
-          comment={post.content}
-        />
-      ))}
+      {myPosts.length === 0 ? (
+        <AddComponent />
+      ) : (
+        myPosts.map((post) => (
+          <PlayListItem
+            key={post.id}
+            id={post.id.toString()}
+            image={post.imageList[0]}
+            time={formatTime(post.createdAt)}
+            initialLikes={post.decibels}
+            comment={post.content}
+          />
+        ))
+      )}
     </>
   );
 };
