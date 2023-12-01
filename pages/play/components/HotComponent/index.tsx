@@ -9,7 +9,7 @@ interface Post {
   imageList: string;
   decibels: number;
   content: string;
-  createdAt: Date;
+  createdAt: string;
 }
 
 const HotComponent = () => {
@@ -36,20 +36,32 @@ const HotComponent = () => {
     <>
       {sortedPosts.map((post) => {
         let imageArray;
+        let dateOfCreatedAt;
         try {
+          console.log(post);
           imageArray = JSON.parse(post.imageList);
           console.log(imageArray);
         } catch (error) {
           console.error("Error parsing image array", error);
+          return null;
         }
-        <PlayListItem
-          key={post.id}
-          id={post.id.toString()}
-          image={imageArray}
-          time={formatTime(post.createdAt)}
-          initialLikes={post.decibels}
-          comment={post.content}
-        />;
+
+        try {
+          dateOfCreatedAt = new Date(post.createdAt);
+        } catch (error) {
+          console.error("Error parsing image array", error);
+          return null;
+        }
+        return (
+          <PlayListItem
+            key={post.id}
+            id={post.id.toString()}
+            image={imageArray[0]}
+            time={formatTime(dateOfCreatedAt)}
+            initialLikes={post.decibels}
+            comment={post.content}
+          />
+        );
       })}
     </>
   );

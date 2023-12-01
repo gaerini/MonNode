@@ -13,7 +13,11 @@ type Post = {
   content: string;
 };
 
-const ProfileInfoWrapper = () => {
+interface User {
+  email: string;
+}
+
+const ProfileInfoWrapper: React.FC<User> = ({ email }) => {
   const { data: session, status } = useSession();
   const [profileData, setProfileData] = useState({
     nickname: "",
@@ -21,17 +25,23 @@ const ProfileInfoWrapper = () => {
     likesCount: 0,
     followersCount: 0,
   });
+
   useEffect(() => {
     //nickname fetch and binding
-    setProfileData((prevState) => ({
-      ...prevState,
-      nickname: session?.user?.name as string,
-    }));
+    API.get("/userRetrieve", {
+      params: { email: email },
+    }).then((response) => {
+      console.log(response.data);
+      setProfileData((prevState) => ({
+        ...prevState,
+        nickname: response.data.user.nickname,
+      }));
+    });
   }, [session, status]);
 
   useEffect(() => {
     API.get("/myposts", {
-      params: { email: (session?.profile as { email: string }).email },
+      params: { email: email },
     })
       .then((response) => {
         const totalDecibels = response.data.userPosts.reduce(
@@ -50,7 +60,7 @@ const ProfileInfoWrapper = () => {
       });
 
     API.get("/friendRetrieve", {
-      params: { email: (session?.profile as { email: string }).email },
+      params: { email: email },
     })
       .then((response) => {
         setProfileData((prevState) => ({

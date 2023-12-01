@@ -8,6 +8,7 @@ import API from "../api/base-api";
 
 function Auth() {
   const { data: session, status } = useSession();
+
   const router = useRouter();
   if (session) {
     API.get("/friendRetrieve", {
