@@ -28,13 +28,13 @@ const Search = () => {
   return (
     <>
       <BlackBackground>
-        <input
+        <S.Input
           name="email"
           type="text"
           placeholder="이메일로 친구를 검색해보세요"
           onChange={inputChangeHandler}
-        ></input>
-        <button onClick={onClickHandler}>검색</button>
+        ></S.Input>
+        <S.Button onClick={onClickHandler}>검색</S.Button>
         {searchResult !== "" ? <Profile email={emailInput} /> : <></>}
         <BottomNav />
       </BlackBackground>
