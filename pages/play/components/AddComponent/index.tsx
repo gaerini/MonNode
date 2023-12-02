@@ -9,9 +9,7 @@ import { useRouter } from "next/navigation";
 
 function AddComponent() {
   const router = useRouter();
-  const skipClickHandler = () => {
-    router.push("/");
-  };
+  const addNodeClickHandler = () => {};
   return (
     <Container>
       <div>
@@ -32,7 +30,7 @@ function AddComponent() {
       <Button
         className={"bg-white text-black font-bold"}
         radius="sm"
-        onClick={skipClickHandler}
+        onClick={addNodeClickHandler}
       >
         Add Node
       </Button>

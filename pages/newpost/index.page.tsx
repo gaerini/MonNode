@@ -31,6 +31,7 @@ const Play: React.FC = () => {
       <S.ContentWrapper>
         <HeaderNav selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         <AddFile />
+        <input></input>
       </S.ContentWrapper>
       <BottomNav />
     </BlackBackground>
