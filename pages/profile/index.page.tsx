@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import * as S from "./style";
 import BottomNav from "components/common/BottomNav";
 import BlackBackground from "components/common/BlackBackground";
@@ -8,14 +8,16 @@ import ProfileInfoWrapper from "./components/ProfileInfo";
 import Before2week from "./components/Before2week";
 import MusicClock from "./components/MusicClock";
 import ProfileHeader from "./components/ProfileHeader";
+import { useSession } from "next-auth/react";
 
 <BlackBackground></BlackBackground>;
 const Profile = () => {
+  const { data: session, status } = useSession();
   return (
     <S.Container>
       <ProfileHeader />
       <ProfileImage />
-      <ProfileInfoWrapper />
+      <ProfileInfoWrapper email={session?.profile.email} />
 
       {/* <h1>Profile</h1>
         <S.ProfileImageWrapper>

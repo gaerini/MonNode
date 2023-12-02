@@ -4,13 +4,13 @@ import MonnodePNG from "public/assets/logo/monnode.png";
 import WelcomePNG from "public/assets/logo/Welcome to.png";
 import { Button } from "@nextui-org/react";
 import styled from "styled-components";
-import API from "../api/base-api";
+import API from "../../../api/base-api";
 import { useRouter } from "next/navigation";
 
-function FirstPage() {
+function AddComponent() {
   const router = useRouter();
   const skipClickHandler = () => {
-    router.push("/play");
+    router.push("/");
   };
   return (
     <Container>
@@ -29,21 +29,18 @@ function FirstPage() {
 
         <img src={MonnodePNG.src} />
       </div>
-      <Button className={"bg-white text-black font-bold"} radius="sm">
-        친구 추가
-      </Button>
       <Button
         className={"bg-white text-black font-bold"}
         radius="sm"
         onClick={skipClickHandler}
       >
-        skip
+        Add Node
       </Button>
     </Container>
   );
 }
 
-export default FirstPage;
+export default AddComponent;
 
 const Container = styled.div`
   width: 88%;
