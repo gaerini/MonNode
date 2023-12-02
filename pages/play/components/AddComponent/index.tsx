@@ -9,7 +9,9 @@ import { useRouter } from "next/navigation";
 
 function AddComponent() {
   const router = useRouter();
-  const addNodeClickHandler = () => {};
+  const addNodeClickHandler = () => {
+    router.push("/upload");
+  };
   return (
     <Container>
       <div>
